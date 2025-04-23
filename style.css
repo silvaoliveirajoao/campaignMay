@@ -112,4 +112,8 @@ img {
         width: 60%;
         height: 30%;
     }
+    body {
+        align-items: flex-start;
+        margin-top: 45vw;
+    }
 } 
