@@ -45,8 +45,8 @@ h1 {
 }
 
 img {
-    width: 40%;
-    height: 72%;
+    width: 30%;
+    height: 64%;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -55,6 +55,44 @@ img {
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.play-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 700;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: #fff;
+}
+
+.play-icon {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.play-text {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
 }
 
 @media (max-width: 768px) {

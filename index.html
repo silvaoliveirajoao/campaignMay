@@ -10,10 +10,43 @@
     <div class="container">
         <h1>ALGO EXTRAORDINÁRIO ESTÁ PARA COMEÇAR...</h1>
         <img src="images/logo.png" alt="Verde & Azul Urbanismo">
+        <button id="playButton" class="play-button">
+            <span class="play-icon">▶</span>
+            <span class="play-text">ATIVAR ÁUDIO</span>
+        </button>
     </div>
-    <audio autoplay loop>
+    
+    <audio id="backgroundAudio" loop>
         <source src="audio/audio.mp3" type="audio/mp3">
         Seu navegador não suporta o elemento de áudio.
     </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('backgroundAudio');
+            const playButton = document.getElementById('playButton');
+            
+            // Ocultar botão se o áudio já estiver tocando
+            audio.addEventListener('playing', function() {
+                playButton.classList.add('hidden');
+            });
+            
+            // Exibir botão se o áudio parar
+            audio.addEventListener('pause', function() {
+                playButton.classList.remove('hidden');
+            });
+            
+            // Botão para iniciar a reprodução do áudio
+            playButton.addEventListener('click', function() {
+                audio.play()
+                    .then(() => {
+                        playButton.classList.add('hidden');
+                    })
+                    .catch(error => {
+                        console.log('Erro ao reproduzir o áudio:', error);
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
