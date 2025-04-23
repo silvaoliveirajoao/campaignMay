@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Barlow Condensed';
+    src: url('fonts/BarlowCondensed-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    height: 100vh;
+    width: 100%;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    max-width: 90%;
+}
+
+h1 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 7rem;
+    color: #ffcc00;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+img {
+    width: 40%;
+    height: 72%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        font-weight: 900;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 3rem;
+    }
+    img {
+        width: 60%;
+        height: 30%;
+    }
+} 
