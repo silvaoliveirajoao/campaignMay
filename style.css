@@ -106,7 +106,7 @@ img {
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     img {
         width: 60%;
@@ -114,6 +114,6 @@ img {
     }
     body {
         align-items: flex-start;
-        margin-top: 45vw;
+        padding-top: 45vw;
     }
 } 
