@@ -1,7 +1,14 @@
 @font-face {
     font-family: 'Barlow Condensed';
-    src: url('fonts/BarlowCondensed-Black.ttf') format('truetype');
-    font-weight: 900;
+    src: url('fonts/BarlowCondensed-Regular.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Great Vibes';
+    src: url('fonts/GreatVibes-Regular.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -11,50 +18,143 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Barlow Condensed', Arial, sans-serif;
-    height: 100vh;
     width: 100%;
-    background-image: url('images/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Section styling */
+#content1, #content2, #content3, #content4 {
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    overflow: hidden;
 }
 
-.container {
-    text-align: center;
+#home {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Home section with home_background */
+#home {
+    background-image: url('images/home_background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Content sections with secundary_background */
+#content1, #content2, #content3, #content4 {
+    background-image: url('images/secundary_background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container-home {
+    text-align: left;
     padding: 20px;
     background-color: transparent;
     border-radius: 10px;
     max-width: 90%;
+    width: 60vw;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-text {
+    text-align: left;
+    margin-left: 40px;
 }
 
 h1 {
-    font-family: 'Barlow Condensed', Arial, sans-serif;
-    font-size: 7rem;
-    color: #ffcc00;
-    font-weight: 900;
+    font-family: 'Great Vibes', Arial, sans-serif;
+    font-size: 4rem;
+    color: #ffffff;
+    font-weight: 200;
+    font-style: italic;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-img {
-    width: 30%;
-    height: 64%;
-    border-radius: 10px;
+span {
+    font-size: 1.5rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-weight: 100;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+#content3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+}
+
+.container-content {
+    text-align: left;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    max-width: 90%;
+    z-index: 10;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#content3-text {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.container-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.verde-azul-logo {
+    width: 25%;
+    height: auto;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.RR-logo {
+    width: 25%;
+    height: auto;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 .play-button {
@@ -95,6 +195,21 @@ img {
     transform: translateY(20px);
 }
 
+#content4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#content4-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -107,13 +222,228 @@ img {
 @media (max-width: 480px) {
     h1 {
         font-size: 2.5rem;
+        text-align: left;
     }
+
+    .container-text {
+        margin-left: 0;
+    }
+
     img {
         width: 60%;
         height: 30%;
     }
-    body {
-        align-items: flex-start;
-        padding-top: 45vw;
+    #home .container-home {
+        padding-top: 20vw;
     }
+    #home {
+        background-position: 68% center;
+    }
+    .verde-azul-logo {
+        width: 60%;
+    }
+    .RR-logo {
+        width: 60%;
+    }
+    #content4-logo {
+        flex-direction: column;
+    }
+}
+
+/* Carrossel Styles */
+.carousel-container {
+    position: relative;
+    width: 60%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.carousel-image {
+    width: 80%;
+    max-width: 400px;
+    height: 40vw;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: white;
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 90%;
+    }
+    
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        width: 100%;
+    }
+    
+    .carousel-image {
+        height: 50vw;
+    }
+    
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+.chart-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 450px;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.chart-container h2 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        width: 90%;
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-container {
+        width: 95%;
+        height: 300px;
+    }
+}
+
+#content2-chart {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.pie-chart-container {
+    width: 90%;
+    max-width: 800px;
+    height: 450px;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.pie-chart-container h2 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.pie-chart-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85%;
+}
+
+.pie-chart-meta {
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.pie-chart-meta span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#content1-text {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
 } 
