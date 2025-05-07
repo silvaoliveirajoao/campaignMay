@@ -454,6 +454,7 @@ p {
 
 .pie-chart-meta {
     margin-bottom: 15px;
+    margin-top: 18px;
     background-color: rgba(0, 0, 0, 0.2);
     padding: 8px 15px;
     border-radius: 5px;
@@ -464,13 +465,13 @@ p {
     font-weight: bold;
 }
 
-#content1-text {
+#content1-text, #content2-text, #content3-text {
     margin-bottom: 20px;
     width: 100%;
     text-align: center;
 } 
 
-#content1-text-title {
+#content1-text-title, #content2-text-title, #content3-text-title {
     font-family: 'Barlow Condensed', Arial, sans-serif;
     color: white;
     font-style: normal;
