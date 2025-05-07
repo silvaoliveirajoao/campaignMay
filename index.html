@@ -29,7 +29,7 @@
     <section id="content1" class="section">
         <div class="container-content">
             <div id="content1-text">
-                <h1>Progresso da Campanha</h1>
+                <h1 id="content1-text-title">Progresso da Campanha</h1>
             </div>
             <div class="pie-chart-container">
                 <h2>Progresso de Vendas</h2>
@@ -117,7 +117,7 @@
             const pieCtx = document.getElementById('salesPieChart').getContext('2d');
             
             // Dados de vendas
-            const lotesVendidos = 22;
+            const lotesVendidos = 3;
             const lotesRestantes = 30 - lotesVendidos;
             
             const salesPieChart = new Chart(pieCtx, {
@@ -208,8 +208,8 @@
             const ctx = document.getElementById('rankingChart').getContext('2d');
             
             // Dados dos vendedores
-            const vendedores = ['João Silva', 'Maria Santos', 'Pedro Oliveira', 'Ana Costa', 'Carlos Pereira'];
-            const vendas = [42, 35, 28, 22, 16];
+            const vendedores = ['Fabiola Gomes', 'Alex Andrade'];
+            const vendas = [2, 1];
             const cores = [
                 'rgba(255, 99, 132, 0.8)',
                 'rgba(54, 162, 235, 0.8)',
@@ -265,23 +265,6 @@
                                 color: 'rgba(255, 255, 255, 0.1)'
                             }
                         },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Vendedores',
-                                font: {
-                                    size: 16
-                                }
-                            },
-                            ticks: {
-                                font: {
-                                    size: 14
-                                }
-                            },
-                            grid: {
-                                display: false
-                            }
-                        }
                     },
                     responsive: true,
                     maintainAspectRatio: false,
@@ -303,57 +286,64 @@
             const nextButton = document.querySelector('.next-button');
             const dots = document.querySelectorAll('.dot');
             
-            // Contador - começando na imagem do meio (índice 1)
-            let counter = 1;
+            let counter = 0;
+            const imageWidth = carouselImages[0].offsetWidth;
+            const gap = 20; // Gap between images in pixels
             
-            // Inicialize o carrossel na imagem do meio
-            window.addEventListener('load', () => {
-                // Calculamos a posição com base na largura do slide + margin
-                const slideWidth = carouselImages[0].offsetWidth + 10; // 10px é    o margin-right
-                carouselSlide.style.transform = 'translateX(' + (-slideWidth * counter) + 'px)';
-                
-                // Atualiza os pontos indicadores
-                dots.forEach(dot => dot.classList.remove('active'));
-                dots[counter].classList.add('active');
-            });
-            
-            // Função para atualizar o carrossel
-            function updateCarousel() {
-                // Calculamos a posição com base na largura do slide + margin
-                const slideWidth = carouselImages[0].offsetWidth + 10; // 10px é o margin-right
-                carouselSlide.style.transform = 'translateX(' + (-slideWidth * counter) + 'px)';
-                
-                // Atualiza os pontos indicadores
-                dots.forEach(dot => dot.classList.remove('active'));
-                dots[counter].classList.add('active');
+            // Initialize carousel
+            function initCarousel() {
+                updateCarousel();
+                updateDots();
             }
             
-            // Botão próximo
+            // Update carousel position
+            function updateCarousel() {
+                const offset = counter * (imageWidth + gap);
+                carouselSlide.style.transform = `translateX(-${offset}px)`;
+            }
+            
+            // Update dots
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === counter);
+                });
+            }
+            
+            // Next button click
             nextButton.addEventListener('click', () => {
-                if (counter >= carouselImages.length - 1) return;
-                counter++;
+                if (counter >= carouselImages.length - 1) {
+                    counter = 0;
+                } else {
+                    counter++;
+                }
                 updateCarousel();
+                updateDots();
                 resetInterval();
             });
             
-            // Botão anterior
+            // Previous button click
             prevButton.addEventListener('click', () => {
-                if (counter <= 0) return;
-                counter--;
+                if (counter <= 0) {
+                    counter = carouselImages.length - 1;
+                } else {
+                    counter--;
+                }
                 updateCarousel();
+                updateDots();
                 resetInterval();
             });
             
-            // Pontos indicadores
+            // Dot click
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
                     counter = index;
                     updateCarousel();
+                    updateDots();
                     resetInterval();
                 });
             });
             
-            // Avança automaticamente a cada 5 segundos
+            // Auto slide
             let slideInterval = setInterval(autoSlide, 5000);
             
             function autoSlide() {
@@ -363,35 +353,40 @@
                     counter++;
                 }
                 updateCarousel();
+                updateDots();
             }
             
-            // Resetar o intervalo quando o usuário interage com o carrossel
+            // Reset interval
             function resetInterval() {
                 clearInterval(slideInterval);
                 slideInterval = setInterval(autoSlide, 5000);
             }
             
-            // Pausa o carrossel quando o mouse está sobre ele
+            // Pause on hover
             carouselSlide.addEventListener('mouseenter', () => {
                 clearInterval(slideInterval);
             });
             
-            // Retoma o carrossel quando o mouse sai
             carouselSlide.addEventListener('mouseleave', () => {
                 slideInterval = setInterval(autoSlide, 5000);
             });
             
-            // Ajusta o carrossel quando a janela é redimensionada
+            // Handle window resize
+            let resizeTimer;
             window.addEventListener('resize', () => {
-                setTimeout(() => {
-                    const slideWidth = carouselImages[0].offsetWidth + 10; // 10px é o margin-right
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    const newImageWidth = carouselImages[0].offsetWidth;
                     carouselSlide.style.transition = 'none';
-                    carouselSlide.style.transform = 'translateX(' + (-slideWidth * counter) + 'px)';
+                    updateCarousel();
                     setTimeout(() => {
                         carouselSlide.style.transition = 'transform 0.5s ease';
                     }, 50);
-                }, 500);
+                }, 250);
             });
+            
+            // Initialize carousel
+            window.addEventListener('load', initCarousel);
         });
     </script>
 </body>
