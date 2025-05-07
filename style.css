@@ -248,6 +248,11 @@ p {
     #content4-logo {
         flex-direction: column;
     }
+
+    .container-logo {
+        flex-direction: column;
+        align-items: start;
+    }
 }
 
 /* Carrossel Styles */
