@@ -3,84 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loteamento Reserva Royal em Tijucas - O jeito Verde & Azul de viver. Conheça nosso loteamento exclusivo com as melhores condições de pagamento.">
+    <meta name="keywords" content="loteamento, Reserva Royal, Tijucas, Verde & Azul, lotes, urbanismo, Santa Catarina">
+    <meta name="author" content="Verde & Azul Urbanismo">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Reserva Royal - Loteamento em Tijucas">
+    <meta property="og:description" content="Conheça o loteamento Reserva Royal em Tijucas, o jeito Verde & Azul de viver.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Landing Page</title>
+    <title>Reserva Royal - Loteamento em Tijucas | Verde & Azul Urbanismo</title>
 </head>
 <body>
-    <section id="home" class="section">
-        <div class="container-home">
-            <div class="container-text">
-                <span>Campanha</span>
-                <h1>Jeito Verde & Azul de Viver</h1>
-                <p>Aqui você fica por dentro das atualizações e andamento da campanha que vai te levar ao topo.</p>
+    <header>
+        <section id="home" class="section">
+            <div class="container-home">
+                <div class="container-text">
+                    <span>Campanha</span>
+                    <h1>Jeito Verde & Azul de Viver</h1>
+                    <p>Aqui você fica por dentro das atualizações e andamento da campanha que vai te levar ao topo.</p>
+                </div>
+                <div class="container-logo">
+                    <img class="RR-logo" src="images/RR_logo.png" alt="Reserva Royal">
+                    <img class="verde-azul-logo" src="images/V&A_logo.png" alt="Verde & Azul Urbanismo">
+                </div>
+                <button type="button" id="playButton" class="play-button">
+                    <span class="play-icon">▶</span>
+                    <span class="play-text">ATIVAR ÁUDIO</span>
+                </button>
             </div>
-            <div class="container-logo">
+        </section>
+    </header>
+
+    <main>
+        <section id="content1" class="section">
+            <div class="container-content">
+                <div id="content1-text">
+                    <h1 id="content1-text-title">Progresso da Campanha</h1>
+                </div>
+                <div class="pie-chart-container">
+                    <div class="pie-chart-info">
+                        <div class="pie-chart-meta">
+                            <span>Meta: 30 lotes</span>
+                        </div>
+                        <canvas id="salesPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content2" class="section">
+            <div id="content2-chart" class="container-content">
+                <div id="content2-text">
+                    <h1 id="content2-text-title">Ranking de Vendas</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="rankingChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="content3" class="section">
+            <div class="container-content">
+                <div id="content3-text" class="container-text">
+                    <h1 id="content3-text-title">Prêmiados da campanha</h2>
+                </div>
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="images/corretor_1.jpg" alt="Corretor 1" class="carousel-image">
+                        <img src="images/corretor_2.JPG" alt="Corretor 2" class="carousel-image">
+                        <img src="images/corretor_3.jpg" alt="Corretor 3" class="carousel-image">
+                    </div>
+                    <button type="button" class="carousel-button prev-button">&#10094;</button>
+                    <button type="button" class="carousel-button next-button">&#10095;</button>
+                    <div class="carousel-dots">
+                        <span class="dot"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="content4" class="section">
+            <div id="content4-logo" class="container-content">
                 <img class="RR-logo" src="images/RR_logo.png" alt="Reserva Royal">
                 <img class="verde-azul-logo" src="images/V&A_logo.png" alt="Verde & Azul Urbanismo">
             </div>
-            <button type="button" id="playButton" class="play-button">
-                <span class="play-icon">▶</span>
-                <span class="play-text">ATIVAR ÁUDIO</span>
-            </button>
-        </div>
-    </section>
-
-    <section id="content1" class="section">
-        <div class="container-content">
-            <div id="content1-text">
-                <h1 id="content1-text-title">Progresso da Campanha</h1>
-            </div>
-            <div class="pie-chart-container">
-                <div class="pie-chart-info">
-                    <div class="pie-chart-meta">
-                        <span>Meta: 30 lotes</span>
-                    </div>
-                    <canvas id="salesPieChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="content2" class="section">
-        <div id="content2-chart" class="container-content">
-            <div id="content2-text">
-                <h1 id="content2-text-title">Ranking de Vendas</h2>
-            </div>
-            <div class="chart-container">
-                <canvas id="rankingChart"></canvas>
-            </div>
-        </div>
-    </section>
-    
-    <section id="content3" class="section">
-        <div class="container-content">
-            <div id="content3-text" class="container-text">
-                <h1 id="content3-text-title">Prêmiados da campanha</h2>
-            </div>
-            <div class="carousel-container">
-                <div class="carousel-slide">
-                    <img src="images/corretor_1.jpg" alt="Corretor 1" class="carousel-image">
-                    <img src="images/corretor_2.JPG" alt="Corretor 2" class="carousel-image">
-                    <img src="images/corretor_3.jpg" alt="Corretor 3" class="carousel-image">
-                </div>
-                <button type="button" class="carousel-button prev-button">&#10094;</button>
-                <button type="button" class="carousel-button next-button">&#10095;</button>
-                <div class="carousel-dots">
-                    <span class="dot"></span>
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="content4" class="section">
-        <div id="content4-logo" class="container-content">
-            <img class="RR-logo" src="images/RR_logo.png" alt="Reserva Royal">
-            <img class="verde-azul-logo" src="images/V&A_logo.png" alt="Verde & Azul Urbanismo">
-        </div>
-    </section>
+        </section>
+    </footer>
 
     <audio id="backgroundAudio" loop>
         <source src="audio/audio.mp3" type="audio/mp3">
