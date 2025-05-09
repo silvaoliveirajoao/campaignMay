@@ -138,7 +138,7 @@
             const pieCtx = document.getElementById('salesPieChart').getContext('2d');
             
             // Dados de vendas
-            const lotesVendidos = 4;
+            const lotesVendidos = 5;
             const lotesRestantes = 30 - lotesVendidos;
             
             const salesPieChart = new Chart(pieCtx, {
@@ -229,8 +229,8 @@
             const ctx = document.getElementById('rankingChart').getContext('2d');
             
             // Dados dos vendedores
-            const vendedores = ['Fabiola Gomes', 'Alex Andrade', "Cléber Pinheiro"];
-            const vendas = [2, 1, 1];
+            const vendedores = ['Fabiola Gomes', "Cléber Pinheiro", 'Alex Andrade'];
+            const vendas = [2, 2, 1];
             const cores = [
                 'rgba(255, 99, 132, 0.8)',
                 'rgba(54, 162, 235, 0.8)',
